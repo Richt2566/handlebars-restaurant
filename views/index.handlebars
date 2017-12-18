@@ -1,0 +1,44 @@
+
+<div class="topper">
+  <h1 class="title"> ICE CREAM SHOPPE </h1>
+
+  <div class="middle">
+    <form action="/{{this.id}}?_method=POST" method="POST">
+      <input type="hidden" name="devoured" value="{{this.id}}">
+      <input type="text" name="burger_name">
+      <button type="submit">Add a flavor!</button>
+    </form>
+  </div>
+</div>
+
+<div class="left">
+  {{!-- <h1>Waiting to be devoured</h1> --}}
+  <ul>
+    {{#each burgers}}
+      {{#unless this.devoured}}
+        <button class="button1">
+          {{this.burger_name}}
+          <form action="/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="devour" value="true">
+            <button class="submit-btn" type="submit">Devour it!</button>
+          </form>
+        </button>
+      {{/unless}}
+    {{/each}}
+  </ul>
+  <div class="cone"></div>
+</div>
+
+<div class="right">
+  {{!-- <h1>Devoured</h1> --}}
+  <ul>
+    {{#each burgers}}
+      {{#if this.devoured}}
+        <li>
+          {{this.burger_name}}
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+
