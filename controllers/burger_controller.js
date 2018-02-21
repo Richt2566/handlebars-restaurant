@@ -20,7 +20,7 @@ router.post("/", function(req, res) {
   ], [
     req.body.burger_name, req.body.devour
   ], function() {
-    console.log(req.body.name);
+    console.log(req.body.devour);
     res.redirect("/");
   });
 });
